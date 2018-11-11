@@ -51,8 +51,7 @@ export const getRecordsUsingAxios = () => {
             else {
                 return data.records;
             }
-        })
-        .catch(err => {
+        }).catch(err => {
             console.error(err.toString());
 
             return [];
