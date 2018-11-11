@@ -15,7 +15,7 @@ class Navigation extends React.Component {
         if (Object.keys(items).length <= 0) {
             content = (
                 <Dimmer active>
-                    <Loader active inline='centered'>Loading Menu from Airtable</Loader>
+                    <Loader active inline='centered'>Loading menu from Airtable</Loader>
                 </Dimmer>
             );
         }
@@ -26,7 +26,7 @@ class Navigation extends React.Component {
         }
 
         return (
-            <Menu stackable color='teal'>
+            <Menu>
                 {content}
             </Menu>
         );

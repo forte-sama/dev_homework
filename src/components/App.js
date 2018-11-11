@@ -4,6 +4,7 @@ import * as fetcher from '../utils/fetcher';
 import * as menuBuilder from '../utils/menuBuilder';
 
 import Navigation from './Navigation';
+import { Responsive, Message, Grid, Container, Header, Divider } from 'semantic-ui-react';
 
 class App extends React.Component {
 
@@ -13,7 +14,7 @@ class App extends React.Component {
         menuBuilder.build(fetcher).then(items => {
             setTimeout(() => {
                 console.log("app started (Finally)");
-                
+
                 this.setState({ items });
             }, 1678);
         });
@@ -25,15 +26,21 @@ class App extends React.Component {
 
     render() {
         return (
-            <div>
-                <div className="row">
-                    <Navigation items={this.menuItems()} />
-                    <div className="row">
-                        <h1 className="btn btn-block btn-success"><span role="img" aria-label="cool icon">🚀</span> Dev Homework</h1>
-                        <h3 className="ui grey">See menu above</h3>
-                    </div>
-                </div>
-            </div>
+            <Container>
+                <Responsive as={Navigation} minWidth={995} items={this.menuItems()} />
+                <Responsive as={Message} maxWidth={994} info header='Need a bigger screen to see the menu' />
+                <Divider />
+                <Grid centered columns={2}>
+                    <Grid.Column>
+                        <Header as='h1' textAlign='center'>
+                            <span role="img" aria-label="cool icon">🚀</span> Homework Assignment
+                        </Header>
+                        <Header as='h3' textAlign='center' color='grey'>
+                            <b>By Cesar Garcia</b>
+                        </Header>
+                    </Grid.Column>
+                </Grid>
+            </Container>
         );
     }
 }
